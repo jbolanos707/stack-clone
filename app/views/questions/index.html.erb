@@ -1,0 +1,9 @@
+<h1>Top Questions</h1>
+
+<ul>
+  <% @questions.each do |question| %>
+  <li>
+    <%= link_to question.title, user_question_path(question.user, question) %>
+  </li>
+  <% end %>
+</ul>

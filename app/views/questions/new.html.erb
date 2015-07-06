@@ -1,0 +1,8 @@
+<h1>new question</h1>
+<%= form_for [current_user, Question.new] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
