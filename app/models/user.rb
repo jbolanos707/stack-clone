@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   after_create :send_signup_confirmation
   has_many :questions
+  has_many :answers
 
   def encrypt_password
     self.password_salt = BCrypt::Engine.generate_salt

@@ -1,0 +1,6 @@
+<h1>Contribute An Answer</h1>
+<%= form_for [current_user, @question, Answer.new] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>

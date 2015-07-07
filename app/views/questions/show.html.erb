@@ -2,3 +2,15 @@
 <p>
   <%= @question.body %>
 </p>
+
+<%= link_to "Add An Answer", new_user_question_answer_path(current_user, @question) %>
+
+<% if @answers.any? %>
+  <ul>
+    <% @answers.each do |answer| %>
+      <li> <%= answer.body %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no answers</p>
+<% end %>
