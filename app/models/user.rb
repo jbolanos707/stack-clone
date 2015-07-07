@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   validates :email, :password, :username, :presence => true
   validates_confirmation_of :password
+  validates_uniqueness_of :email
   before_save :encrypt_password
   after_create :send_signup_confirmation
   has_many :questions

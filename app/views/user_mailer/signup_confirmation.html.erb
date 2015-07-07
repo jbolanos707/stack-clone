@@ -1,5 +1,6 @@
-<h1>UserMailer#signup_confirmation</h1>
-
+<h1><%= @user.username %></h1>
+<%= @greeting %>
 <p>
-  <%= @greeting %>, find me in app/views/user_mailer/signup_confirmation.html.erb
+  Welcome to Stack Clone! Thank you for signing up. Follow the link to log into your account.
 </p>
+<%= link_to 'Login', new_sessions_url %>

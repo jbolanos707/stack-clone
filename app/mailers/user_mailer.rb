@@ -9,6 +9,6 @@ class UserMailer < ApplicationMailer
     @user = user
     @greeting = "Hi"
 
-    mail to: user.email, subject: "Signup confirmation"
+    mail to: @user.email, subject: "Signup confirmation"
   end
 end
