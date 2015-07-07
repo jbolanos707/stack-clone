@@ -7,6 +7,7 @@ describe "adding a question" do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
+    click_link user.username
     click_link 'New Question'
     question = FactoryGirl.create(:question)
     fill_in 'Title', with: question.title
@@ -22,6 +23,7 @@ describe "adding a question" do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
+    click_link user.username
     click_link 'New Question'
     click_button 'Create Question'
 

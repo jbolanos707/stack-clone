@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates :email, :password, :username, :presence => true
   validates_confirmation_of :password
   before_save :encrypt_password
+  after_create :send_signup_confirmation
   has_many :questions
 
   def encrypt_password
@@ -18,5 +19,9 @@ class User < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def send_signup_confirmation
+    UserMailer.signup_confirmation(self).deliver_now
   end
 end

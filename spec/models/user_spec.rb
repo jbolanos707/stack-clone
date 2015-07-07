@@ -15,4 +15,10 @@ describe User do
     expect(User.authenticate(user.email, user.password)).to eq(user)
   end
 
+
+  it "sends an email when the user is created" do
+     user = FactoryGirl.create(:user)
+     ActionMailer::Base.deliveries.last.to.should eq [user.email]
+   end
+
 end

@@ -7,8 +7,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.signup_confirmation(@user).deliver
       flash[:notice] = "Welcome to Stack Overflow. Please enter your email and password"
-      redirect_to sessions_path
+      redirect_to new_sessions_path
     else
       flash[:alert] = "There was a problem creating your account. Please try again."
       redirect_to :back
